@@ -116,10 +116,15 @@ def test_noncreator_evaluation(contract, core, direct_vm, direct_bob, method):
     assert contract.get_review(1) == before  # public read remains allowed
 
 
-def test_evaluate_shell_fails_without_writing(contract, core):
+def test_evaluate_shell_fails_without_writing(contract, core, monkeypatch):
+    # Phase 2 replaces the intentional placeholder. Preserve the same failure
+    # atomicity assertion at the actual consensus boundary without external I/O.
+    def unavailable(*args):
+        raise core.gl.vm.UserError("TRANSIENT:CONSENSUS_UNAVAILABLE")
+    monkeypatch.setattr(core.gl.vm, "run_nondet_unsafe", unavailable)
     create(contract)
     before = contract.get_review(1)
-    with raises_code(core, "PHASE_NOT_IMPLEMENTED", "EVALUATION_REQUIRES_PHASE_2"):
+    with raises_code(core, "TRANSIENT", "CONSENSUS_UNAVAILABLE"):
         contract.evaluate(1)
     assert contract.get_review(1) == before
 
