@@ -3,164 +3,225 @@
 ## Overall Goal
 
 Build Multimodal Acceptance Matrix as a reusable GenLayer Intelligent Contract
-submission, according to the repository's authoritative FROZEN V1 documents.
+primitive according to the authoritative FROZEN V1 documents. Repository A is the
+only implementation scope of this run.
 
 ## Current Phase
 
-PHASE 1 — Repository A Skeleton + Deterministic Core: **PASS / COMPLETE**.
-Stopped at the Phase 1 acceptance gate. PHASE 2 is not started.
+PHASE 2 — Nondeterministic Leader / Validator: **PASS / LOCAL COMPLETE**.
+Real GenVM/network/model verification is explicitly deferred to authorized Phase 4.
+STOP at Phase 2; do not merge, deploy, create Repository B, or begin Phase 3.
+
+Baseline main: `ec65b616b8a7a70211ccc163dc3c20657037d4a6`.
+Phase 1 was already merged and authoritative: 143 passing deterministic tests.
+All 15 baseline files were verified byte-for-byte by Git blob hash before edits.
 
 ## Phase Goal
 
-Make all deterministic protocol semantics independently testable before adding
-artifact access or nondeterministic execution. Implement only Repository A.
+Replace the intentional evaluate placeholder with the supported custom
+nondeterministic pipeline: independent byte fetching and SHA256, complete
+multimodal Leader classification, complete independent Validator classification,
+frozen deterministic material comparison, and accepted-result persistence.
 
 ## Confirmed Completed
 
-- Read README and all seven required frozen specification/execution documents
-  in full before changing code; inspected the originally documents-only tree.
-- Single-file SDK contract skeleton with complete Review JSON representation,
-  nested Criterion representation, sized count, and typed persistent map.
-- Input validation: nonblank title/brief/criterion text, syntactically valid HTTPS
-  URL, 1–6 criteria, unique sequential C1–Cn IDs, frozen enums, and at least one MUST.
-- Permissionless creation, creator-only evaluation preconditions, public reads,
-  count, deterministic unknown-review and already-evaluated errors.
-- Immutable specification and detached views; deterministic canonical JSON and
-  SHA256 spec hash covering every specification field and ordered criterion IDs.
-- Complete matrix validation: exact expected IDs/order/count/fields, no duplicate
-  cells, legal statuses by assessment mode. BINARY/PARTIAL is rejected.
-- Deterministic MUST-only verdict derivation with frozen precedence; SHOULD
-  FAIL/PARTIAL never changes ACCEPTED.
-- Exact artifact-hash comparison, independent deterministic verdict derivation,
-  and per-cell Material Consequence Equivalence, including symmetric SHOULD
-  GRADED neighboring tolerance without transitive PASS/FAIL tolerance.
-- Internal one-time PENDING → EVALUATED persistence boundary; result validation
-  and verdict derivation occur before the single storage-record write. Failed
-  deterministic operations leave complete existing state unchanged.
-- Public evaluate shell checks existence, creator, and PENDING, then explicitly
-  raises PHASE_NOT_IMPLEMENTED:EVALUATION_REQUIRES_PHASE_2. It cannot persist
-  results or accept caller-supplied classifications.
-- Official Direct Mode tests and SDK ABI generation confirm the four frozen
-  public methods; the internal persistence boundary is not public.
-- Repository structure inspected: no frontend, Repository B, deployment scripts,
-  backend, generated artifacts, or unused application dependencies added.
+- Read the required README, frozen plans/specifications/prompt/equivalence/rules,
+  prior checkpoint, complete contract, and existing tests before changing code.
+- Inspected actual hash-pinned GenVM v0.2.16 SDK source and current official
+  documentation; no unsupported or obsolete API name was assumed.
+- Implemented actual `gl.nondet.web.get` response-body access, HTTPS requirement,
+  byte-based PNG/JPEG/WEBP container checks, and exact 2,000,000-byte maximum.
+- Hash exact fetched bytes in deterministic code using lowercase SHA256.
+  Model text, filename, URL, and MIME claims never supply the hash or image.
+- Frozen canonical classification semantics implemented as a fixed protocol and
+  escaped untrusted specification JSON; visible image text is explicitly untrusted.
+- Both roles supply actual image bytes through the SDK's plural `images=[body]`
+  multimodal parameter with `response_format="json"`.
+- Complete matrix parsing/validation rejects malformed JSON, missing/duplicate/
+  wrong/reordered criteria, invalid mode/status combinations, extra prose fields,
+  and model-generated verdict/hash fields. Code injects the real artifact hash.
+- Supported custom `gl.vm.run_nondet_unsafe` block wired to evaluate.
+- Validator fully fetches, hashes, and classifies again before inspecting Leader
+  matrix. No shared answer, cached classification, comparison model, or convenience
+  equivalence function is used.
+- Existing Phase 1 comparison helpers and deterministic business semantics remain
+  unchanged: exact hashes, frozen non-transitive neighboring SHOULD tolerance,
+  and exact independently derived verdict equality.
+- EXPECTED / EXTERNAL / TRANSIENT / MODEL_ERROR separation implemented. Transient
+  and model failures never become UNKNOWN or accepted business matrices.
+- Independently reproduced matching EXTERNAL errors can agree only as raised
+  errors; the SDK propagates them without entering persistence.
+- Both callbacks are state-free. Only a successfully returned consensus evaluation
+  reaches the existing atomic complete-record commit boundary. The authoritative
+  verdict is derived from MUST criteria in deterministic code.
+- Creator-only evaluation, one-time transition, immutable specification, unchanged
+  state on failed execution, and exactly four public application methods verified.
+- Added 76 Phase 2 local cases, including actual SDK request-payload inspection,
+  independent captured Validator execution, hard closure serialization roundtrips,
+  and the exact pinned SDK RunNondet serialized result/error transport with an
+  offline WASI/consensus stand-in.
 
 ## Tests
 
-PASS: **143**
+PASS: **219**
 FAIL: **0**
 SKIPPED: **0**
 
-Final command: `python -m pytest -q` in the repository with the isolated
-development environment. Final output: `143 passed in 2.72s`.
+| Suite | Passed | Failed | Skipped |
+| --- | ---: | ---: | ---: |
+| Retained Phase 1 | 143 | 0 | 0 |
+| Added Phase 2 | 76 | 0 | 0 |
+| Total | 219 | 0 | 0 |
 
-| Coverage group | Passed cases |
-| --- | ---: |
-| Creation, criterion/enum/URL validation, count and multiple creators | 27 |
-| Unknown reviews, authorization, evaluate shell, lifecycle and immutability | 25 |
-| Stable canonical spec hash and sensitivity to specification fields | 7 |
-| Verdict derivation and internal persistence | 10 |
-| Invalid matrix/output rejection and unchanged state | 19 |
-| Equivalence: all 50 legal cell pairs plus complete-output checks | 54 |
-| SDK-generated public ABI and calldata-compatible criteria parameter | 1 |
-| Total | 143 |
+Final verification command:
+`python -m pytest -q --tb=short -W error::RuntimeWarning`.
+Final successful full-suite run: `219 passed in 5.29s`.
 
-All deterministic acceptance cases A1–A28 in TEST_AND_ACCEPTANCE_PLAN.md are
-covered. Double evaluation, immutable specification, and successful lifecycle
-tests use the private deterministic commit boundary, not a fake public evaluate
-implementation. The 50-pair equivalence table covers every ordered legal status
-pair for BINARY/GRADED × MUST/SHOULD, including both tolerance directions.
-Every contract fixture asserts that no nondeterministic validator execution was
-captured. Public calls roundtrip arguments through the official calldata codec.
+All Phase 1 test cases remain present. Exactly one obsolete placeholder expectation
+was updated: test_evaluate_shell_fails_without_writing now injects failure at the
+actual consensus boundary and asserts the same unchanged-state invariant. Its old
+PHASE_NOT_IMPLEMENTED result necessarily disappeared with Phase 2 authorization.
+No deterministic coverage was deleted or skipped.
 
-The first complete run had 142 PASS / 1 FAIL: a test counted the SDK's inherited
-system error hook as an application method. Replaced that introspection with
-the SDK's official ABI schema generation; the full rerun passed. No core semantic
-change was needed.
+Initial added-test runs revealed an incorrectly copied JPEG fixture and a harness
+omission of cloudpickle. Corrected the fixture to exact valid generated JPEG bytes
+and made the test fixture load the runner's own dependency after each Direct Mode
+reset. Callback serialization is now enforced as a hard roundtrip, not a warning.
+The full suite passed after these fixes and subsequent stronger transport tests.
 
-## Frozen Decisions Relevant to This Phase
+See PHASE2_LOCAL_VERIFICATION.md for the complete 26-requirement evidence mapping.
 
-- Exactly PENDING / EVALUATED, one successful evaluation, immutable specifications
-  and accepted results; changed specifications require a new Review.
-- 1–6 criteria, at least one MUST, sequential criterion IDs, frozen enums.
-- UNKNOWN is an evidence classification, not a model/system-error fallback.
-- MUST-only deterministic verdict; the model cannot set the final verdict.
-- BINARY and MUST GRADED use exact status agreement. SHOULD GRADED tolerates
-  PASS/PARTIAL and PARTIAL/FAIL, but not PASS/FAIL or UNKNOWN/known-state pairs.
-- Artifact hashes and independently derived verdicts must exactly match.
-- Independent complete Leader/Validator evaluations remain required in Phase 2;
-  deterministic comparison helpers do not implement either execution role.
-- Images only, no other chain, no backend/database, no payments/token/escrow.
+## Evidence Boundaries
 
-## Files Changed
+**Tested locally:** SDK web/model request payloads with exact image bytes;
+independent Leader/Validator calls under different responses; byte/hash behavior;
+complete matrix and error validation; frozen comparison; authorization and ABI;
+PENDING preservation under failure; one-time deterministic persistence after an
+offline agreement gate; closure serialization using the pinned runner dependency;
+real SDK RunNondet result/error encoding at a mocked WASI boundary.
 
-- `README.md` — implementation status, interface/storage semantics, local test command.
-- `contracts/multimodal_acceptance_matrix.py` — canonical deterministic source.
-- `tests/conftest.py` — official SDK Direct Mode fixtures with fixed release.
-- `tests/test_phase1.py` — complete deterministic acceptance suite.
-- `requirements-dev.txt` — stable testing-suite/client and tested pytest pins.
-- `pytest.ini` — Phase 1 tests only; Studio plugin disabled.
-- `.gitignore` — exclude local environments, caches, bytecode.
-- `PROJECT_CHECKPOINT.md` — this phase report.
+**Structurally verified:** callbacks capture only specification JSON, not contract
+state or Leader output; no nondeterministic storage writes; comparison occurs after
+independent re-derivation; actual plural images parameter; SDK return/error behavior;
+no forbidden equivalence wrapper; no frozen deterministic semantic changes.
 
-The seven frozen specifications/plans/rules/template files remain unchanged.
+**Not claimed:** live model accuracy/injection resistance, full image-codec support,
+real GenVM sandbox execution, real Validator quorum, blockchain acceptance or finality.
+Direct Mode's default unsafe hook executes only Leader. Tests explicitly execute
+captured Validator callbacks; offline gates supplement, not replace, Phase 4.
 
-## SDK / Tooling Adaptations
+## Frozen Decisions
 
-- No SDK/testing packages were initially installed. Used an isolated Python
-  3.12.14 environment with genlayer-test 0.29.2 (current non-prerelease), its
-  genlayer-py 0.16.3 dependency, and pytest 9.1.1.
-- Loaded official GenVM v0.2.16 artifacts through the testing suite and fixed the
-  contract's documented py-genlayer runner hash:
-  `1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`.
-  Resolved standard-library hash:
-  `11rhn002yfajawsz7fai6mykznbxkxs6l91iskj5cm82c92qhy3v`.
-- Used supported `from genlayer import *`, `gl.Contract`, public write/view
-  decorators, `gl.message.sender_address`, and `gl.vm.UserError`.
-- Adapted logical Review/Criteria storage to canonical JSON in
-  `TreeMap[u256, str]` and a `u256` counter rather than unsupported persistent
-  Python dict/list/int annotations. In-memory calldata remains list/dict/int,
-  verified by the official SDK schema and calldata codec.
-- Used official in-memory Direct Mode only. Disabled the independent Studio
-  pytest plugin to avoid its unrelated default Localnet configuration.
-- No semantic conflict with installed tooling was found.
+- Logical state schema, public ABI, immutable Review specifications and results,
+  PENDING/EVALUATED lifecycle, successful one-time evaluation.
+- 1–6 fixed sequential criteria, at least one MUST, frozen enums.
+- UNKNOWN is evidence insufficiency only, never a system-error fallback.
+- MUST-only deterministic verdict; model cannot choose verdict or artifact hash.
+- Exact BINARY and GRADED MUST status agreement.
+- GRADED SHOULD tolerance only PASS/PARTIAL or PARTIAL/FAIL in either direction;
+  no PASS/FAIL tolerance, no UNKNOWN/known tolerance, no transitive broadening.
+- Exact hash and independently derived verdict matching.
+- Independent full-matrix multimodal Leader and Validator derivation.
+- HTTPS PNG/JPEG/WEBP only; no backend, secondary chain, paid API, payments, or token.
+
+The seven frozen specification/plan/rules/template documents were not rewritten.
+The original runner header, package pins, and pytest configuration remain unchanged.
+
+## Exact Files Changed
+
+1. `contracts/multimodal_acceptance_matrix.py` — independent evaluation, prompt,
+   image byte/container validation/hash, errors, custom Validator, evaluate wiring.
+2. `tests/conftest.py` — expose the exact runner-owned cloudpickle dependency in
+   local Direct Mode after its per-test SDK cleanup; preserve Phase 1 fixtures.
+3. `tests/test_phase1.py` — update only the obsolete placeholder failure assertion.
+4. `tests/test_phase2.py` — 76 focused offline SDK/direct/serialized-transport cases.
+5. `README.md` — current Phase 2 behavior, local evidence and limitations.
+6. `PHASE2_LOCAL_VERIFICATION.md` — API/error/image details, acceptance evidence,
+   harness limitations and deferred real-network questions.
+7. `PROJECT_CHECKPOINT.md` — this completed-stage checkpoint.
+
+## SDK / API Adaptations
+
+No package upgrade. No runner change. Pinned versions remain genlayer-test 0.29.2,
+genlayer-py 0.16.3, pytest 9.1.1, GenVM v0.2.16.
+
+- Nondeterministic mechanism: `gl.vm.run_nondet_unsafe(leader, validator)`.
+  Validator UserError/VMError handling is custom; no default error-message equality
+  can accidentally validate model/transient failure as a business result.
+- Actual multimodal representation: raw byte sequence via `images=[body]`.
+  The SDK's json overload annotation uses singular image, but actual implementation
+  and typed kwargs use plural images; the executable API was inspected and tested.
+- Temporary model output omits artifact_hash. Code adds the independently computed
+  byte hash, preserving canonical artifact_hash + criteria output.
+- Test tooling adaptation only: extract the exact py-lib-cloudpickle dependency
+  `1dlk6mnfabi0z7r39635amyfzw8xb6rm8bv4pmgv6ji1bfx9hghd` from the same pinned release.
+  Direct Mode's path loader otherwise omits it and its unsafe hook ignores the
+  check_pickling setting. This changes no production dependencies or semantics.
+
+## Independence Guarantees
+
+**Leader:** independent_evaluation receives only immutable specification JSON,
+then obtains its own Response.body, validates/hash-calculates those exact bytes,
+and executes a complete criterion classification with the fixed prompt.
+
+**Validator:** independent_evaluation is invoked again with that specification,
+with no Leader answer argument. It fetches/hashes/classifies independently before
+validate_independently reads Leader classification for deterministic comparison.
+Tests inspect two separate SDK fetches and two multimodal request payloads, then
+change Validator image/model responses to establish hash and judgment disagreement.
+
+## Unresolved Real-Network-Only Questions
+
+- Live image decoding, uncommon PNG/JPEG/WEBP variants and corrupt compressed data
+  beyond bounded container checks, plus provider classification quality.
+- Live OCR/model behavior for visibly rendered prompt-injection text. Local tests
+  prove prompt/data separation and structural rejection, not universal resistance.
+- Node-runtime sandbox/cloudpickle compatibility, resource limits, error detail,
+  consensus rotations/retries/quorum/finality, and real atomic rollback.
+- Real independent node artifact availability and mutable-byte/hash disagreement.
+- Hidden redirects: pinned Response has no final URL or redirect-control option.
+  Submitted URL is HTTPS; exposed redirects abort. Executor behavior is deferred.
+- The body limit is post-fetch because the stable API materializes Response.body;
+  it cannot bound upstream download/allocation before bytes arrive.
+
+No local Phase 2 blocker remains. These limitations are documented and must be
+verified only in an explicitly authorized later real-network phase.
+
+## Rejected Options
+
+- Schema-only or Leader plausibility checking: violates independent re-derivation.
+- strict_eq, prompt_comparative/non_comparative or generic equivalence substitution:
+  would change the frozen material consequences.
+- Model-generated hash/verdict: replaced with authoritative deterministic code.
+- UNKNOWN as catch-all error fallback: violates business/system separation.
+- Broad package upgrades or adding a codec dependency: unnecessary for the pinned
+  SDK byte representation; bounded container checks preserve original image bytes.
+- Claiming real consensus from Leader-only Direct Mode: explicitly prohibited;
+  local Validator and transport evidence is labeled, real execution deferred.
+
+## Key Assumptions and Constraints
+
+Only Phase 2 is authorized. Stable Studionet remains the later intended network;
+no network is used now. SDK-provided raw body/image representation is used directly.
+A successful custom nondeterministic return precedes persistence; actual protocol
+finality and failure rollback require later network evidence.
 
 ## Real Network Actions
 
 NONE.
-
-This means blockchain/RPC actions: no chain was contacted. Development-only
-GitHub repository access, official documentation lookup, and package/SDK artifact
-downloads were performed. Direct Mode's local instance construction is not an
-onchain deployment.
+Development-only GitHub and official documentation/artifact inspection occurred.
+No blockchain/RPC endpoint was contacted.
 
 ## Transactions Sent
 
 NONE.
 
-## Unresolved Issues
-
-- No Phase 1 blockers. Direct Mode validates actual SDK storage/calldata and
-  deterministic behavior; full GenVM/network execution has not been attempted.
-- evaluate remains intentionally unavailable pending explicit Phase 2 authorization.
-  Real-byte fetching/hash, supported-image/size checks, multimodal model access,
-  independent Leader/Validator execution, consensus, and external/transient error
-  handling are deferred exactly as specified, not claimed as complete.
-
-## Rejected Alternatives
-
-- Persistent native Python dict/list fields: replaced with supported typed map
-  plus canonical JSON records, preserving the frozen logical representation.
-- Public test-only result setter or fabricated successful evaluate: rejected;
-  lifecycle tests use a private deterministic boundary excluded from the ABI.
-- Automatic latest SDK artifact selection: rejected in favor of a fixed stable
-  release and runner hash for reproducible deterministic testing.
-
 ## Scope Deviations
 
 NONE.
+No frontend, Repository B, backend, deployment, wallet, faucet, hosting, or Phase 3.
 
-## Next Recommended Phase
+## Stop Condition
 
-PHASE 2 — Nondeterministic Leader / Validator, only after explicit authorization.
-Do not enter automatically. No deployment or transaction authorization is implied.
+Phase 2 implementation and local acceptance gate are complete. Create a draft PR
+against main and stop. Do not merge automatically. Wait for explicit authorization.
