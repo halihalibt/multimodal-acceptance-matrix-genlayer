@@ -1,3 +1,79 @@
+# PROJECT CHECKPOINT — Multimodal Acceptance Matrix — Phase 4 closure
+
+## Overall goal
+
+Complete the frozen Intelligent Contract primitive and its BriefProof application
+using the same canonical source and Stable Studionet only.
+
+## Current phase and goal
+
+**PHASE 4 CLOSURE — real onchain evidence and frontend integration.**
+Record the user's successful deployment/create/evaluate, independently verify
+read-only persistence and provenance, enable the existing real frontend, and
+prepare a separate draft PR. Stop; do not merge or enter Phase 5.
+
+## Confirmed completed
+
+- Original RPC transactions confirm FINALIZED / Leader SUCCESS / MAJORITY_AGREE.
+- Evaluate: Normal, 5 initial validators, 0 rotations, 3 AGREE / 2 DISAGREE.
+- Public Explorer evaluation overview and Consensus tab independently inspected.
+- Review #1: EVALUATED / ACCEPTED, actual C1–C5 all PASS; exact hashes and brief.
+- Source commit `6fed5915a839b9b4336cd4723a69fd80df37fb25`; source SHA256 `563ac0b7c429f571acb45ff427840555105401155aebe2d906e0a8960c56daf2`.
+- Canonical A source, complete B copy and deployment transaction code byte identity PASS.
+- Real SDK count/review readback and mounted React first-load/remount verified
+  without signing wallet. Full Chromium/CORS validation remains limited.
+
+## Validation
+
+Repository A: **219 PASS / 0 FAIL / 0 SKIPPED**, full approved pytest suite.
+Repository B final results: see the validation section in README.md.
+Live frontend read-only check: **1 PASS**, actual SDK/native fetch, JSDOM mount
+and fresh gateway/remount. Never describe this as full Chromium reload evidence.
+
+## Frozen decisions
+
+All architecture/specification/prompt/equivalence decisions remain unchanged.
+Canonical production contract source remains unchanged. No alternate network,
+backend, mock production review, verdict recomputation or automatic write retry.
+
+## Limitations and unresolved questions
+
+See REAL_NETWORK_EVIDENCE.md. Full browser preview/hosted-origin CORS and frontend
+wallet signing are not claimed. Broad negative live-model/error cases remain
+unverified. These do not invalidate the independently verified successful
+onchain example or the actual local React read/reconstruction test.
+
+## Real network actions / transactions / hosting
+
+Work: existing transaction reads and view calls only. User: three already completed
+manual transactions. **No new blockchain transactions sent.** No faucet, contract
+deploy/upgrade, hosting, Portal submission, merge or Phase 5 action.
+
+## Rejected options
+
+Inventing five AGREE votes, copying the older brief/spec hash, hard-coding a detail
+matrix, broadly refactoring passing integration, changing deployed contract source,
+and treating a canceled Validator run as failed Leader execution were rejected.
+
+## Files changed in Phase 4 closure
+
+- `DEPLOYMENT_MANIFEST_STUDIONET.md`
+- `PROJECT_CHECKPOINT.md`
+- `README.md`
+- `REAL_NETWORK_EVIDENCE.md`
+
+## Scope deviations / stop condition
+
+NONE. Prepare draft PRs and stop for authorization. No automatic Phase 5.
+
+---
+
+## Historical checkpoint (superseded phase status and authorization)
+
+The following records the earlier completed stage. Its earlier network-disabled
+scope/status/stop statements are historical; the current Phase 4 instruction and
+checkpoint above supersede them. Frozen protocol decisions still apply.
+
 # PROJECT CHECKPOINT
 
 ## Overall Goal
