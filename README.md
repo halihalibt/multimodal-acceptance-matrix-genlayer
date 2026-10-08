@@ -5,8 +5,8 @@ A reusable GenLayer Intelligent Contract primitive for consensus-based multimoda
 ## Status
 
 - Architecture: **FROZEN V1**
-- Development: **PHASE 2 COMPLETE — locally verified independent Leader/Validator**
-- Deployment: **NOT STARTED**
+- Development: **PHASE 4 CLOSURE — successful real onchain example verified**
+- Deployment: **Stable Studionet — `0xFE36de515cD28269E1347faD4f583319e9111312`**
 - Scope: **FROZEN**
 
 ## Core Idea
@@ -102,9 +102,21 @@ assert unchanged state when the actual consensus boundary raises.
 Direct Mode does not execute real consensus. Tests explicitly run captured
 Validator callbacks, enforce an offline pre-persistence consensus gate, and
 exercise the pinned SDK's serialized RunNondet interface with an offline WASI
-stand-in. Live model accuracy, image decoder support, and multi-Validator network
-consensus remain deferred to Phase 4. See `PHASE2_LOCAL_VERIFICATION.md` and
+stand-in. The Phase 4 example now verifies actual image evaluation and multi-Validator
+acceptance; broader decoder/injection/negative-path claims remain limited. See `PHASE2_LOCAL_VERIFICATION.md` and
 `PROJECT_CHECKPOINT.md` for evidence and limitations.
 
-**STOP: Phase 2 ends here.** No real network actions or transactions. No frontend,
-Repository B, deployment, hosting, or Phase 3 work is authorized by this change.
+## Real onchain evidence
+
+Review #1 is EVALUATED / ACCEPTED, with actual C1–C5 all PASS. Work independently
+read the deployed state and original three transactions. Evaluation has 3 AGREE /
+2 DISAGREE, 5 initial validators and 0 rotations. Deployment source bytes match
+this canonical source and Repository B's complete copy exactly.
+
+See [deployment manifest](DEPLOYMENT_MANIFEST_STUDIONET.md),
+[real evidence](REAL_NETWORK_EVIDENCE.md) and [checkpoint](PROJECT_CHECKPOINT.md)
+for exact source commit/hash, address, transactions, immutable brief/criteria,
+artifact/spec hashes, actual execution semantics and verification limitations.
+
+**STOP: Phase 4 closure.** Draft PR only; no automatic merge, Phase 5, new chain
+transaction, contract deployment/upgrade, faucet, hosting or Portal submission.
