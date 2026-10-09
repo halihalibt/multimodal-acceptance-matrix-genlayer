@@ -5,7 +5,7 @@ A reusable GenLayer Intelligent Contract primitive for consensus-based multimoda
 ## Status
 
 - Architecture: **FROZEN V1**
-- Development: **PHASE 5 — public demo available; pre-submission review**
+- Development: **PHASE 5 — public BriefProof browser E2E verified; Intelligent Contracts submitted by the owner; Projects submission pending**
 - Deployment: **Stable Studionet — `0xFE36de515cD28269E1347faD4f583319e9111312`**
 - Scope: **FROZEN**
 
@@ -109,12 +109,27 @@ acceptance; broader decoder/injection/negative-path claims remain limited. See `
 ## Public product demonstration
 
 The companion BriefProof product is publicly hosted at
-https://halihalibt.github.io/briefproof-genlayer/ . Its verified Review #1
-(https://halihalibt.github.io/briefproof-genlayer/#/review/1) reads the
-contract's persisted EVALUATED / ACCEPTED result and C1–C5 PASS matrix.
-The project owner also confirmed a successful reload in a real Chrome browser.
-This read-only browser success is not proof of successful public-site write signing;
-those writes were executed manually in GenLayer Studio.
+https://halihalibt.github.io/briefproof-genlayer/ .
+
+- [Review #1](https://halihalibt.github.io/briefproof-genlayer/#/review/1)
+  was created/evaluated manually in GenLayer Studio. Its persisted result is
+  EVALUATED / ACCEPTED with C1–C5 PASS; real consensus recorded 3 AGREE
+  and 2 DISAGREE.
+- [Review #2](https://halihalibt.github.io/briefproof-genlayer/#/review/2)
+  was both created and evaluated from the **public BriefProof website**
+  using the owner's OKX Wallet on Stable Studionet. Explorer receipts confirm
+  FINALIZED / GenVM SUCCESS for
+  [create_review](https://explorer-studio.genlayer.com/tx/0x81fa89474b06785396125102300f0abdaaa9c6f32afcbe4c56f2261b05773a8c)
+  (returned ID 2) and
+  [evaluate(2)](https://explorer-studio.genlayer.com/tx/0x57459f79cdb936b6a528fa9f79a66739ec25fcf311e672b3a00eadc85fc6c678).
+  The public Review #2 shows EVALUATED / ACCEPTED, all five PASS, and the
+  owner separately confirmed successful F5 readback **after finality**.
+
+The browser write evidence and the boundary around earlier receipt UI errors
+are documented in the companion
+[Phase 5 Web E2E evidence](https://github.com/halihalibt/briefproof-genlayer/blob/main/PHASE5_PUBLIC_WEB_E2E_EVIDENCE.md).
+Neither successful example implies every wallet/provider or input will behave
+identically.
 
 ## Real onchain evidence
 
@@ -132,6 +147,8 @@ artifact/spec hashes, actual execution semantics and verification limitations.
 
 Licensed under the [MIT License](LICENSE). The deployed canonical source is
 unchanged; its complete byte-identical copy is present in the BriefProof project.
-Phase 4 closure PR was merged and the companion project's GitHub Pages site is
-published. **Portal submission has not occurred as part of this patch.**
-No new contract deployment, upgrade, or chain transaction was required.
+The companion GitHub Pages site is published. The project owner reports
+having successfully submitted this **Intelligent Contracts** contribution to
+GenLayer Portal; this repository does not independently verify the Portal
+submission receipt. The separate **Projects** submission is being prepared.
+This documentation update does not deploy, upgrade or transact with a contract.
