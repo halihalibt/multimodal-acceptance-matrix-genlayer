@@ -5,7 +5,7 @@ A reusable GenLayer Intelligent Contract primitive for consensus-based multimoda
 ## Status
 
 - Architecture: **FROZEN V1**
-- Development: **PHASE 4 CLOSURE — successful real onchain example verified**
+- Development: **PHASE 5 — public demo available; pre-submission review**
 - Deployment: **Stable Studionet — `0xFE36de515cD28269E1347faD4f583319e9111312`**
 - Scope: **FROZEN**
 
@@ -106,6 +106,16 @@ stand-in. The Phase 4 example now verifies actual image evaluation and multi-Val
 acceptance; broader decoder/injection/negative-path claims remain limited. See `PHASE2_LOCAL_VERIFICATION.md` and
 `PROJECT_CHECKPOINT.md` for evidence and limitations.
 
+## Public product demonstration
+
+The companion BriefProof product is publicly hosted at
+https://halihalibt.github.io/briefproof-genlayer/ . Its verified Review #1
+(https://halihalibt.github.io/briefproof-genlayer/#/review/1) reads the
+contract's persisted EVALUATED / ACCEPTED result and C1–C5 PASS matrix.
+The project owner also confirmed a successful reload in a real Chrome browser.
+This read-only browser success is not proof of successful public-site write signing;
+those writes were executed manually in GenLayer Studio.
+
 ## Real onchain evidence
 
 Review #1 is EVALUATED / ACCEPTED, with actual C1–C5 all PASS. Work independently
@@ -118,5 +128,10 @@ See [deployment manifest](DEPLOYMENT_MANIFEST_STUDIONET.md),
 for exact source commit/hash, address, transactions, immutable brief/criteria,
 artifact/spec hashes, actual execution semantics and verification limitations.
 
-**STOP: Phase 4 closure.** Draft PR only; no automatic merge, Phase 5, new chain
-transaction, contract deployment/upgrade, faucet, hosting or Portal submission.
+## Licensing and submission status
+
+Licensed under the [MIT License](LICENSE). The deployed canonical source is
+unchanged; its complete byte-identical copy is present in the BriefProof project.
+Phase 4 closure PR was merged and the companion project's GitHub Pages site is
+published. **Portal submission has not occurred as part of this patch.**
+No new contract deployment, upgrade, or chain transaction was required.
