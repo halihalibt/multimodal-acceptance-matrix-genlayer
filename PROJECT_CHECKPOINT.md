@@ -1,3 +1,25 @@
+# PROJECT CHECKPOINT — Phase 5 publication / submission-readiness addendum (2026-10-09)
+
+This is a **new checkpoint addendum**. The earlier Phase 4 closure and
+historical stage records below remain unchanged as accurate records of their
+own execution times.
+
+- The Phase 4 draft PR was subsequently merged into main.
+- The companion BriefProof website was published at
+  https://halihalibt.github.io/briefproof-genlayer/ .
+- In the owner's Chrome browser the hosted Verified Onchain Example and
+  `#/review/1` rendered the real EVALUATED / ACCEPTED, C1–C5 PASS state;
+  refresh succeeded. No hosted frontend write was performed or verified.
+- The complete canonical deployed production contract source remains
+  untouched and synchronized byte-for-byte in Repository B.
+- The repository is licensed under MIT with the owner's explicit approval.
+- The present task proposes documentation/license changes only, in a
+  **draft PR awaiting user review**; no Portal submission or new chain writes.
+- Remaining gate: reviewer-ready submission metadata/evidence and, if
+  authorized, an explicit live frontend write test. Do not claim one occurred.
+
+---
+
 # PROJECT CHECKPOINT — Multimodal Acceptance Matrix — Phase 4 closure
 
 ## Overall goal
